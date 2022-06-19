@@ -1,0 +1,10 @@
+package com.kurss.demo.model;
+
+public enum Certificates {
+	EIGHTY_PLUS,
+	EIGHTY_PLUS_BRONZE,
+	EIGHTY_PLUS_SILVER,
+	EIGHTY_PLUS_GOLD,
+	EIGHTY_PLUS_PLATINUM,
+	EIGHTY_PLUS_TITANIUM
+}
