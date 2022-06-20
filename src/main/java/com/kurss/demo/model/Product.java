@@ -41,8 +41,17 @@ public class Product {
 	@Column(name="ProdType")
 	ProductTypes type;
 	
-	public Product(String title, double price, ProductTypes type)
+	@Column(name="ProdAmount")
+	@Min(0)
+	int amount;
+	
+	@Column(name="LinkToImage")
+	String linkImage;
+	
+	public Product(String title, double price, ProductTypes type, int amount, String linkImage)
 	{
+		setLinkImage(linkImage);
+		setAmount(amount);
 		setTitle(title);
 		setPrice(price);
 		setType(type);

@@ -72,9 +72,9 @@ public class Cooler extends Product{
 	@Column(name="CoolerCompany")
 	CoolerCompanies coolerCompany;
 	
-	public Cooler(String title, double price, ProductTypes type, String CPUSocket, int numberOfFans, int rotationalSpeed, int noiseLevel, int height, int width, int length, int weight, CoolerCompanies coolerCompany)
+	public Cooler(String title, double price, ProductTypes type, int amount, String linkImage, String CPUSocket, int numberOfFans, int rotationalSpeed, int noiseLevel, int height, int width, int length, int weight, CoolerCompanies coolerCompany)
 	{
-		super(title, price, type);
+		super(title, price, type, amount, linkImage);
 		setCoolerCompany(coolerCompany);
 		setCPUSocket(CPUSocket);
 		setHeight(height);

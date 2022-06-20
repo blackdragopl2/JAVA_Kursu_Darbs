@@ -51,9 +51,9 @@ public class PowerSupply extends Product {
 	@Column(name="certificate")
 	Certificates certificate;
 	
-	public PowerSupply(String title, double price, ProductTypes type, int supply, int volume, boolean modular, String construction, PowerSupplyCompanies psc, Certificates certificate)
+	public PowerSupply(String title, double price, ProductTypes type, int amount, String linkImage, int supply, int volume, boolean modular, String construction, PowerSupplyCompanies psc, Certificates certificate)
 	{
-		super(title, price, type);
+		super(title, price, type, amount, linkImage);
 		setSupply(supply);
 		setVolume(volume);
 		setModular(modular);
