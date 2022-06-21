@@ -23,7 +23,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class Product {
-	
 	@Id
 	@Column(name="ID_PRODUCT")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

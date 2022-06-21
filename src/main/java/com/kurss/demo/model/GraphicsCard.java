@@ -1,31 +1,23 @@
 package com.kurss.demo.model;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table
-@PrimaryKeyJoinColumn(name="ID_GC")
 @Getter
 @Setter
 @NoArgsConstructor
 public class GraphicsCard extends Product{
-	@Id
-	@Column(name="ID_GC")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Setter(value=AccessLevel.NONE)
-	int ID_GC;
-	
 	@Column(name="GPU_speed")
 	int GPUSpeed;
 	
@@ -50,6 +42,10 @@ public class GraphicsCard extends Product{
 	@Column(name="Card_company")
 	CardCompanies cardCompany;
 
+	@OneToMany(mappedBy="pcGraphicsCard")
+	@ToString.Exclude
+	private Collection<PC> computers;
+	
 	public GraphicsCard(String title, double price, ProductTypes type, int amount, String linkImage, int GPUSpeed, int RAM,
 			String RAMType, int RAMFrequency, String dataBus, String coolingType, String connectors, CardCompanies cardCompany)
 	{
