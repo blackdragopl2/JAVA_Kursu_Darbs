@@ -1,17 +1,17 @@
 package com.kurss.demo.model;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table
@@ -20,13 +20,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class Processor extends Product{
-
-	@Id
-	@Column(name="ID_PROC")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Setter(value=AccessLevel.NONE)
-	int ID_PROC;
-	
 	@Column(name="Processor_line")
 	ProcessorLines line;
 	
@@ -47,6 +40,10 @@ public class Processor extends Product{
 	
 	@Column(name="Architecture")
 	String architecture;
+	
+	@OneToMany(mappedBy="pcProcessor")
+	@ToString.Exclude
+	private Collection<PC> computers;
 	
 	public Processor(String title, double price, ProductTypes type, int amount, String linkImage, ProcessorLines line, int cores, 
 			int threads, int frequency, int frequencyTurbo

@@ -56,6 +56,7 @@ public class PC {
 	@JoinColumn(name="ID_PWR")
 	private PowerSupply pcPowerSupply;
 	
+	@Column(name="PC_price")
 	private double price;
 	
 	//through IDs

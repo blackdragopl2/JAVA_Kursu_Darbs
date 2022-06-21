@@ -1,31 +1,23 @@
 package com.kurss.demo.model;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table
-@PrimaryKeyJoinColumn(name="ID_MB")
 @Getter
 @Setter
 @NoArgsConstructor
 public class Motherboard extends Product{
-	@Id
-	@Column(name="ID_MB")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Setter(value=AccessLevel.NONE)
-	private int ID_MB;
-	
 	@Column(name="Board_type")
 	private String typeOfBoard;
 	
@@ -46,6 +38,10 @@ public class Motherboard extends Product{
 	
 	@Column(name="Board_company")
 	private BoardCompanies boardCompany;
+	
+	@OneToMany(mappedBy="pcMotherboard")
+	@ToString.Exclude
+	private Collection<PC> computers;
 	
 	public Motherboard(String title, double price, ProductTypes type, int amount, String linkImage, String typeOfBoard, 
 			String chipset, String CPUSocket, String memoryStandard, int memorySlots, boolean integratedGraphics, BoardCompanies boardCompany)

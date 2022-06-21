@@ -1,32 +1,23 @@
 package com.kurss.demo.model;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table
-@PrimaryKeyJoinColumn(name="ID_RAM")
 @Getter
 @Setter
 @NoArgsConstructor
 public class RAM extends Product{
-
-	@Id
-	@Column(name="ID_RAM")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Setter(value=AccessLevel.NONE)
-	int ID_RAM;
-	
 	@Column(name="RAM_Type")
 	String RAMType;
 	
@@ -44,6 +35,10 @@ public class RAM extends Product{
 	
 	@Column(name="RAM_Company")
 	RAMCompanies RAMCompany;
+	
+	@OneToMany(mappedBy="pcRAM")
+	@ToString.Exclude
+	private Collection<PC> computers;
 	
 	public RAM(String title, double price, ProductTypes type, int amount, String linkImage, String RAMType,
 			int RAMCapacity, int numberOfModules, int operatingFrequency, int delay, RAMCompanies RAMCompany)

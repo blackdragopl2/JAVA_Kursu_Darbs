@@ -1,35 +1,26 @@
 package com.kurss.demo.model;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table
-@PrimaryKeyJoinColumn(name="ID_COOL")
 @Getter
 @Setter
 @NoArgsConstructor
 public class Cooler extends Product{
-	
-	@Id
-	@Column(name="ID_COOL")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Setter(value=AccessLevel.NONE)
-	int ID_COOL;
-	
 	@Column(name="CPU_socket")
 	@Size(min=3, max=150)
 	String CPUSocket;
@@ -71,6 +62,10 @@ public class Cooler extends Product{
 	
 	@Column(name="CoolerCompany")
 	CoolerCompanies coolerCompany;
+	
+	@OneToMany(mappedBy="pcCooler")
+	@ToString.Exclude
+	private Collection<PC> computers;
 	
 	public Cooler(String title, double price, ProductTypes type, int amount, String linkImage, String CPUSocket, int numberOfFans, int rotationalSpeed, int noiseLevel, int height, int width, int length, int weight, CoolerCompanies coolerCompany)
 	{

@@ -2,30 +2,18 @@ package com.kurss.demo.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table
-@PrimaryKeyJoinColumn(name="ID_MON")
 @Getter
 @Setter
 @NoArgsConstructor
 public class Monitor extends Product{
-	@Id
-	@Column(name="ID_MON")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Setter(value=AccessLevel.NONE)
-	int ID_MON;
-	
 	@Column(name="Screen_type")
 	String screenType;
 	
