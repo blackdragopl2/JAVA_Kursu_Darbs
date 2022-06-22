@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>E-shop</title>
+		<link rel="stylesheet" href="css/product-all-page.css">
+	</head>
+	
+	<body>
+		<div th:each="temp : ${package}" class="product">
+			<a th:href="@{main/products/{id}(id=${temp.getID_PROD()})}">
+				<img th:src="${temp.getLinkImage()}" class="productImage">
+				<p th:text="${temp.getTitle()}"></p>
+			</a>
+				<p th:text="${temp.getPrice()}"></p>
+		</div>
+	</body>
+</html>
