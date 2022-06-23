@@ -1,0 +1,15 @@
+body{
+}
+
+.product
+{
+	float: left;
+	height:400px;
+	width: 400px;
+}
+
+.productImage
+{
+	height: 250px;
+	width: 250px;	
+}
