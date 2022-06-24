@@ -19,4 +19,10 @@ public class CRUDService implements ICRUDService{
 		ArrayList<Product> products= (ArrayList<Product>) productRepo.findAll();
 		return products;
 	};
+	
+	public Product selectProduct(int id)
+	{
+		Product product = productRepo.findById(id).get();
+		return product;
+	}
 }
