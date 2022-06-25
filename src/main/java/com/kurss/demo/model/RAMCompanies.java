@@ -7,5 +7,6 @@ public enum RAMCompanies {
 	INTEL,
 	CORSAIR,
 	KINGSTON,
-	GIGABYTE
+	GIGABYTE,
+	GSKILL
 }

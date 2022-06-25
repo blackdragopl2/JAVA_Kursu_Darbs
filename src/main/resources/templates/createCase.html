@@ -1,0 +1,61 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<form action="#" th:action="@{/main/add/case}" th:object="${case}" method="post">
+	<table>
+		<tr>
+			<td>Title</td>
+			<td><input type="text" th:field="*{title}"></td>
+			<td th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</td>
+		</tr>
+			<td>Price</td>
+			<td><input type="text" th:field="*{price}"></td>
+			<td th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</td>
+		<tr>
+			<select name="type" th:field="*{type}">
+			<option th:each="typeOpt : ${T(com.kurss.demo.model.ProductTypes).values()}" th:value="${typeOpt}" th:text="${typeOpt}"></option>
+			</select>
+		</tr>
+		<tr>
+			<td>Amount</td>
+			<td><input type="text" th:field="*{amount}"></td>
+			<td th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}">Amount Error</td>
+		</tr>
+		<tr>
+			<td>Link to image</td>
+			<td><input type="text" th:field="*{linkImage}"></td>
+			<td th:if="${#fields.hasErrors('linkImage')}" th:errors="*{linkImage}">Link Error</td>
+		</tr>
+		<tr>
+			<td>Height</td>
+			<td><input type="text" th:field="*{height}"></td>
+			<td th:if="${#fields.hasErrors('height')}" th:errors="*{height}">Height Error</td>
+		</tr>
+		<tr>
+			<td>Width</td>
+			<td><input type="text" th:field="*{width}"></td>
+			<td th:if="${#fields.hasErrors('width')}" th:errors="*{width}">Width Error</td>
+		</tr>
+		<tr>
+			<td>Length</td>
+			<td><input type="text" th:field="*{length}"></td>
+			<td th:if="${#fields.hasErrors('length')}" th:errors="*{length}">Length Error</td>
+		</tr>
+		<tr>
+			<td>Type of case</td>
+			<td><input type="text" th:field="*{typeOfCase}"></td>
+			<td th:if="${#fields.hasErrors('typeOfCase')}" th:errors="*{typeOfCase}">Length Error</td>
+		</tr>
+		<tr>
+			<select name="caseCompany" th:field="*{caseCompany}">
+			<option th:each="caseCompanyOpt : ${T(com.kurss.demo.model.CaseCompanies).values()}" th:value="${caseCompanyOpt}" th:text="${caseCompanyOpt}"></option>
+			</select>
+		</tr>
+		<tr>
+			<td><button type="submit"> Save case </button>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>

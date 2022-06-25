@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel= "stylesheet" th:href="@{/css/styles.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200&family=Kaushan+Script&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Tehnika</title>
+</head>
+<body>
+    
+    <header class="header">
+        <div class="container">
+            <div class="header_inner">
+                <div class="header_logo">MrRobot</div>
+            
+
+            <nav class="nav">
+                <a class="nav_link" th:href="@{~/main}">Home</a>
+                <a class="nav_link" th:href="@{~/main/products}">Products</a>
+                <a class="nav_link" href="#">About us</a>
+                <a class="nav_link" href="#">Contact</a>
+            </nav>
+        </div>
+        </div>
+    </header>
+
+    
+<div class="intro">
+    <div class= "container">
+        <div class="intro_inner">
+            <h2 class="intro_suptitle">40% discount on</h2>
+            <h1 class="intro_title"> <b> all </b>  HYPERPC computers </h1>
+
+            <a class="btn" href="#">See more</a>
+        </div>
+
+        <div class="slider">
+            <div class="slider_item active"> <span class="slider_num">01</span> </div>
+            <div class="slider_item"><span class="slider_num">02</span> </div>
+            <div class="slider_item"><span class="slider_num">03</span> </div>
+            <div class="slider_item"><span class="slider_num">04</span> </div>
+        </div>
+    </div>
+</div>
+
+<div class="statistic">
+    <div class="container">
+        <div class="stat">
+
+            <div class="stat_item">
+                <div class="stat_count">42</div>
+                <div class="stat_text">sales</div>
+            </div>
+            <div class="stat_item">
+                <div class="stat_count">73</div>
+                <div class="stat_text">happy client</div>
+            </div>
+            <div class="stat_item">
+                <div class="stat_count">1</div>
+                <div class="stat_text">award winner</div>
+            </div>
+            <div class="stat_item">
+                <div class="stat_count">852</div>
+                <div class="stat_text">subscribers</div>
+            </div>
+            <div class="stat_item">
+                <div class="stat_count">4</div>
+                <div class="stat_text">members</div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="section_header">
+            <h2 class="section_title">Our products</h2>
+            <div class="section_text">
+                <p>Our products include personal computers, laptops and computer components such as hard drives, motherboards, processors, power supplies and RAM.</p>         
+            </div>
+        </div>
+
+        <div class="about">
+            <div class="about_item">
+                <div class="about_img">
+                    <img src = "images/pc1.jpg" alt="">
+                </div>
+                <div class="about_text_2">Personal computers</div>
+                <a class="about_text" href="#">See all</a>
+            </div>
+            
+            <div class="about_item">
+                <div class="about_img">
+                    <img src = "images/components.jpg" alt="">
+                </div>
+                <div class="about_text_2">Comuter's components</div>
+                <a class="about_text" th:href="@{main/products/}">See all</a>
+            </div>
+
+            <!--
+            <div class="about_item">
+                <div class="about_img">
+                    <img src = "assets/images/laptop.jpg" alt="">
+                </div>
+                <div class="about_text_2">Laptops</div>
+                <a class="about_text" href="#">See all</a>
+            </div>-->
+
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="section_2">
+    <div class="container">
+        <div class="section_header">
+            <h3 class="section_suptitle">MrRobor World</h3>
+            <h2 class="section_title">Why choose us?</h2>
+        </div>
+
+        <div class="services">
+            <div class="services_item">
+                <img class="services_icon" src="images/icons/photo.png" alt="">
+                <div class="services_title">Speed of service</div>
+                <div class="services_text">Our product will not make you wait long!</div>
+            </div>
+            <div class="services_item">
+                <img class="services_icon" src="images/icons/web.png" alt="">
+                <div class="services_title"> Progress</div>
+                <div class="services_text">Our quality and performance are divine. There is no limit to our creativity - we continue to develop our products.</div>
+            </div>
+            <div class="services_item">
+                <img class="services_icon" src="images/icons/creat.png" alt="">
+                <div class="services_title">Commodity quality</div>
+                <div class="services_text">Our quality and performance are divine. </div>
+            </div>
+
+        </div>
+
+        <hr> 
+
+        <div class="services">
+            <div class="services_item">
+                <img class="services_icon" src="images/icons/seo.png" alt="">
+                <div class="services_title">Quality Content </div>
+                <div class="services_text"> Product descriptions will not leave you unimpressed.</div>
+            </div>
+            <div class="services_item">
+                <img class="services_icon" src="images/icons/home.png" alt="">
+                <div class="services_title"> Accessibility</div>
+                <div class="services_text">Our branches are located in 40 countries of the world - we are everywhere</div>
+            </div>
+            <div class="services_item">
+                <img class="services_icon" src="images/icons/didital.png" alt="">
+                <div class="services_title">Good ratings</div>
+                <div class="services_text">Absolutely all customers were satisfied with the purchase - and you will be satisfied too</div>
+            </div>
+
+        </div>
+
+
+    </div>
+</section>
+
+<!--
+<section class="section_3">
+    <div class="container">
+        <div class="section_header">
+            <h2 class="section_title">TRENDING NOW</h2>
+        </div>
+
+        <div class="about">
+            <div class="about_item">
+                <div class="about_img">
+                    <img src = "images/pc_list/pc55.jpg" alt="">
+                </div>
+                <div class="about_text_2">HP Omen Gaming Desktop <b> 1500.99$</b></div>
+                <a class="about_text" href="#">buy</a>
+            </div>
+            <div class="about_item">
+                <div class="about_img">
+                    <img src = "images/components_list/component4.jpg" alt="">
+                </div>
+                <div class="about_text_2">Trust GXT 107 Izza <b> 25.99$</b></div>
+                <a class="about_text" href="#">buy</a>
+            </div>
+            <div class="about_item">
+                <div class="about_img">
+                    <img src = "images/components_list/component6.jpg" alt="">
+                </div>
+                <div class="about_text_2"> 35" Predator Z35 Curved Gaming Monitor <b> 500.99$</b></div>
+                <a class="about_text" href="#">buy</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+-->
+
+
+<div class="footer_dark">
+    <footer>
+        <div class="container">
+            <p class="copyright"> <b>MrRobot</b> © 2022 All rights reserved</p>
+        </div>
+    </footer>
+</div>
+
+</body>
+
+</html>

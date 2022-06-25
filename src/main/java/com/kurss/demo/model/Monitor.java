@@ -18,7 +18,7 @@ public class Monitor extends Product{
 	String screenType;
 	
 	@Column(name="Screen_size")
-	double screenSize;
+	String screenSize;
 	
 	@Column(name="Screen_technology")
 	String screenTechnology;
@@ -36,7 +36,7 @@ public class Monitor extends Product{
 	MonitorCompanies monitorCompany;
 	
 	public Monitor(String title, double price, ProductTypes type, int amount, String linkImage, String screenType,
-			double screenSize, String screenTechnology, String resolution, String aspectRatio, int refreshRate, MonitorCompanies monitorCompany)
+			String screenSize, String screenTechnology, String resolution, String aspectRatio, int refreshRate, MonitorCompanies monitorCompany)
 	{
 		super(title, price, type, amount, linkImage);
 		setScreenType(screenType);

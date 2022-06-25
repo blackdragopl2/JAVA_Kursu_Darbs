@@ -1,0 +1,81 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<form action="#" th:action="@{/main/add/cooler}" th:object="${cooler}" method="post">
+	<table>
+		<tr>
+			<td>Title</td>
+			<td><input type="text" th:field="*{title}"></td>
+			<td th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</td>
+		</tr>
+			<td>Price</td>
+			<td><input type="text" th:field="*{price}"></td>
+			<td th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</td>
+		<tr>
+			<select name="type" th:field="*{type}">
+			<option th:each="typeOpt : ${T(com.kurss.demo.model.ProductTypes).values()}" th:value="${typeOpt}" th:text="${typeOpt}"></option>
+			</select>
+		</tr>
+		<tr>
+			<td>Amount</td>
+			<td><input type="text" th:field="*{amount}"></td>
+			<td th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}">Amount Error</td>
+		</tr>
+		<tr>
+			<td>Link to image</td>
+			<td><input type="text" th:field="*{linkImage}"></td>
+			<td th:if="${#fields.hasErrors('linkImage')}" th:errors="*{linkImage}">Link Error</td>
+		</tr>
+		<tr>
+			<td>CPU socket</td>
+			<td><input type="text" th:field="*{CPUSocket}"></td>
+			<td th:if="${#fields.hasErrors('CPUSocket')}" th:errors="*{CPUSocket}">Socket Error</td>
+		</tr>
+		<tr>
+			<td>Number of fans</td>
+			<td><input type="text" th:field="*{numberOfFans}"></td>
+			<td th:if="${#fields.hasErrors('numberOfFans')}" th:errors="*{numberOfFans}">Number of fans Error</td>
+		</tr>
+		<tr>
+			<td>Rotational speed</td>
+			<td><input type="text" th:field="*{rotationalSpeed}"></td>
+			<td th:if="${#fields.hasErrors('rotationalSpeed')}" th:errors="*{rotationalSpeed}">Rotational speed Error</td>
+		</tr>
+		<tr>
+			<td>Noise level</td>
+			<td><input type="text" th:field="*{noiseLevel}"></td>
+			<td th:if="${#fields.hasErrors('noiseLevel')}" th:errors="*{noiseLevel}">Noise level Error</td>
+		</tr>
+		<tr>
+			<td>Height</td>
+			<td><input type="text" th:field="*{height}"></td>
+			<td th:if="${#fields.hasErrors('height')}" th:errors="*{height}">Height Error</td>
+		</tr>
+		<tr>
+			<td>Width</td>
+			<td><input type="text" th:field="*{width}"></td>
+			<td th:if="${#fields.hasErrors('width')}" th:errors="*{width}">Width Error</td>
+		</tr>
+		<tr>
+			<td>Length</td>
+			<td><input type="text" th:field="*{length}"></td>
+			<td th:if="${#fields.hasErrors('length')}" th:errors="*{length}">Length Error</td>
+		</tr>
+		<tr>
+			<td>Weight</td>
+			<td><input type="text" th:field="*{weight}"></td>
+			<td th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}">Length Error</td>
+		</tr>
+		<tr>
+			<select name="coolerCompany" th:field="*{coolerCompany}">
+			<option th:each="coolerCompanyOpt : ${T(com.kurss.demo.model.CoolerCompanies).values()}" th:value="${coolerCompanyOpt}" th:text="${coolerCompanyOpt}"></option>
+			</select>
+		</tr>
+		<tr>
+			<td><button type="submit"> Save cooler </button>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>

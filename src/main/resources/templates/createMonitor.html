@@ -1,0 +1,71 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<form action="#" th:action="@{/main/add/monitor}" th:object="${monitor}" method="post">
+	<table>
+		<tr>
+			<td>Title</td>
+			<td><input type="text" th:field="*{title}"></td>
+			<td th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</td>
+		</tr>
+			<td>Price</td>
+			<td><input type="text" th:field="*{price}"></td>
+			<td th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</td>
+		<tr>
+			<select name="type" th:field="*{type}">
+			<option th:each="typeOpt : ${T(com.kurss.demo.model.ProductTypes).values()}" th:value="${typeOpt}" th:text="${typeOpt}"></option>
+			</select>
+		</tr>
+		<tr>
+			<td>Amount</td>
+			<td><input type="text" th:field="*{amount}"></td>
+			<td th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}">Amount Error</td>
+		</tr>
+		<tr>
+			<td>Link to image</td>
+			<td><input type="text" th:field="*{linkImage}"></td>
+			<td th:if="${#fields.hasErrors('linkImage')}" th:errors="*{linkImage}">Link Error</td>
+		</tr>
+		<tr>
+			<td>Screen type</td>
+			<td><input type="text" th:field="*{screenType}"></td>
+			<td th:if="${#fields.hasErrors('screenType')}" th:errors="*{screenType}">Screen type error</td>
+		</tr>
+		<tr>
+			<td>Screen size</td>
+			<td><input type="text" th:field="*{screenSize}"></td>
+			<td th:if="${#fields.hasErrors('screenSize')}" th:errors="*{screenSize}">Size Error</td>
+		</tr>
+		<tr>
+			<td>Screen technology</td>
+			<td><input type="text" th:field="*{screenTechnology}"></td>
+			<td th:if="${#fields.hasErrors('screenTechnology')}" th:errors="*{screenTechnology}">Screen technology error</td>
+		</tr>
+		<tr>
+			<td>Resolution</td>
+			<td><input type="text" th:field="*{resolution}"></td>
+			<td th:if="${#fields.hasErrors('resolution')}" th:errors="*{resolution}">Resolution Error</td>
+		</tr>
+		<tr>
+			<td>Aspect ratio</td>
+			<td><input type="text" th:field="*{aspectRatio}"></td>
+			<td th:if="${#fields.hasErrors('aspectRatio')}" th:errors="*{aspectRatio}">Aspect Ratio Error</td>
+		</tr>
+		<tr>
+			<td>Refresh rate</td>
+			<td><input type="text" th:field="*{refreshRate}"></td>
+			<td th:if="${#fields.hasErrors('refreshRate')}" th:errors="*{refreshRate}">Refresh rate Error</td>
+		</tr>
+		<tr>
+			<select name="monitorCompany" th:field="*{monitorCompany}">
+			<option th:each="monitorCompanyOpt : ${T(com.kurss.demo.model.MonitorCompanies).values()}" th:value="${monitorCompanyOpt}" th:text="${monitorCompanyOpt}"></option>
+			</select>
+		</tr>
+		<tr>
+			<td><button type="submit"> Save monitor </button>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>

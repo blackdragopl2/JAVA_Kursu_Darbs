@@ -5,5 +5,6 @@ public enum MonitorCompanies {
 	LG,
 	DELL,
 	ASUS,
-	PHILIPS
+	PHILIPS,
+	ACER
 }

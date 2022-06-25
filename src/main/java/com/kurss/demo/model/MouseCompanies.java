@@ -5,5 +5,6 @@ public enum MouseCompanies {
 	RAZER,
 	HYPERX,
 	ASUS,
-	A4TECH
+	A4TECH,
+	TRUST
 }

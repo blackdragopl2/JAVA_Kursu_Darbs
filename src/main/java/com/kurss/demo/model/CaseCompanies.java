@@ -7,5 +7,7 @@ public enum CaseCompanies {
 	THERMALTAKE,
 	SEASONIC,
 	MSI,
-	GIGABYTE
+	GIGABYTE,
+	COOLERMASTER,
+	VETRO
 }

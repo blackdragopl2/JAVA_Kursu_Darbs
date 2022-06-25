@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel= "stylesheet" th:href="@{/css/styles.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200&family=Kaushan+Script&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header_inner">
+                <div class="header_logo">MrRobot</div>
+            
+
+            <nav class="nav">
+                <a class="nav_link" th:href="@{~/main}">Home</a>
+                <a class="nav_link" th:href="@{~/main/products}">Products</a>
+                <a class="nav_link" href="#">About us</a>
+                <a class="nav_link" href="#">Contact</a>
+            </nav>
+        </div>
+        </div>
+    </header>
+
+
+      <section class="section_3">
+        <div class="container">
+            <div class="section_header">
+                <h2 class="section_title_1">Name of product: </h2>
+            </div>
+    
+            <div class="about">
+
+                <div class="about_item_1">
+                    <div class="about_img_1">
+                        <img th:src="${package.getLinkImage()}" alt="">
+                    </div>
+                    <div class="about_text_2_2" th:text="${package.getTitle()}"> <b th:text="${package.getPrice()}"> </b></div>
+                    <a class="about_text_1" href="#">buy</a>
+                </div>
+                
+	            <div th:if="${package instanceof T(com.kurss.demo.model.Monitor)}">
+	            	<p th:text="${'Price: ' + package.getPrice()} + '$'">
+	            	</p>
+	            	<p th:text="${'Screen size: ' + package.getScreenSize()}">
+	            	</p>
+	            	<p th:text="${'Screen type: ' + package.getScreenType()}">
+	            	</p>
+	            	<p th:text="${'Screen technology ' + package.getScreenTechnology()}">
+	            	</p>
+	            	<p th:text="${'Screen resolution: ' + package.getResolution()}">
+	            	</p>
+	            	<p th:text="${'Screen refresh rate: ' + package.getRefreshRate()}">
+	            	</p>
+					<p th:text="${'Company: ' + package.getMonitorCompany()}">
+	            	</p>
+	            </div>
+	            
+				<div th:if="${package instanceof T(com.kurss.demo.model.Case)}">
+					<p th:text="${'Price: ' + package.getPrice()} + '$'">
+	            	</p>
+	            	<p th:text="${'Height: ' + package.getHeight()} + 'mm'">
+	            	</p>
+	            	<p th:text="${'Width: ' + package.getWidth()} + 'mm'">
+	            	</p>
+	            	<p th:text="${'Length: ' + package.getLength()} + 'mm'">
+	            	</p>
+	            	<p th:text="${'Type: ' + package.getTypeOfCase()}">
+	            	</p>
+	            	<p th:text="${'Company: ' + package.getCaseCompany()}">
+	            	</p>
+	            </div>
+	            
+	            <div th:if="${package instanceof T(com.kurss.demo.model.Cooler)}">
+					<p th:text="${'Price: ' + package.getPrice()} + '$'">
+	            	</p>
+	            	<p th:text="${'Socket: ' + package.getCPUSocket()}">
+	            	</p>
+	            	<p th:text="${'Number of fans: ' + package.getNumberOfFans()}">
+	            	</p>
+	            	<p th:text="${'Rotational speed: ' + package.getRotationalSpeed()}">
+	            	</p>
+	            	<p th:text="${'Noise level: ' + package.getNoiseLevel()} + 'dB'">
+	            	</p>
+	            	<p th:text="${'Height: ' + package.getHeight()} + 'mm'">
+	            	</p>
+	            	<p th:text="${'Width: ' + package.getWidth()} + 'mm'">
+	            	</p>
+	            	<p th:text="${'Length: ' + package.getLength()} + 'mm'">
+	            	</p>
+	            	<p th:text="${'Weight: ' + package.getWeight()} + 'gr'">
+	            	</p>
+	            	<p th:text="${'Company: ' + package.getCoolerCompany()}">
+	            	</p>
+	            </div>
+	            
+	           <div th:if="${package instanceof T(com.kurss.demo.model.GraphicsCard)}">
+					<p th:text="${'Price: ' + package.getPrice()} + '$'">
+	            	</p>
+	            	<p th:text="${'GPU speed: ' + package.getGPUSpeed()} + 'mHz'">
+	            	</p>
+	            	<p th:text="${'Ram amount: ' + package.getRAM()}">
+	            	</p>
+	            	<p th:text="${'Ram type: ' + package.getRAMType()}">
+	            	</p>
+	            	<p th:text="${'RAM frequency: ' + package.getRAMFrequency()} + 'mHz'">
+	            	</p>
+	            	<p th:text="${'Data bus: ' + package.getDataBus()}">
+	            	</p>
+	            	<p th:text="${'Cooling type: ' + package.getCoolingType()}">
+	            	</p>
+	            	<p th:text="${'Connectors: ' + package.getConnectors()}">
+	            	</p>
+	            	<p th:text="${'Company: ' + package.getCardCompany()}">
+	            	</p>
+	            </div>
+	            
+	            <div th:if="${package instanceof T(com.kurss.demo.model.Keyboard)}">
+	            	<p th:text="${'Price: ' + package.getPrice()} + '$'">
+	            	</p>
+	            	<p th:if="${package.isRGB()}" th:text="${'RGB included'}">
+	            	</p>
+	            	<p :if="${!package.isRGB()}" th:text="${'RGB not included'}">
+	            	</p>
+					<p th:if="${package.isBluetooth()}" th:text="${'Bluetooth included'}">
+	            	</p>
+	            	<p th:if="${!package.isBluetooth()}" th:text="${'Bluetooth not included'}">
+	            	</p>
+	            	<p th:text="${'Keyboard type: ' + package.getKeyboardType()}">
+	            	</p>
+	            	<p th:text="${'Company: ' + package.getKeyboardCompany()}">
+	            	</p>
+	            </div>
+	            
+	            <div th:if="${package instanceof T(com.kurss.demo.model.Motherboard)}">
+	            	<p th:text="${'Price: ' + package.getPrice()} + '$'">
+	            	</p>
+	            	<p th:text="${'Motherboard type: ' + package.getTypeOfBoard()}">
+	            	</p>
+	            	<p th:text="${'Chipset: ' + package.getChipset()}">
+	            	</p>
+	            	<p th:text="${'CPU socket: ' + package.getCPUSocket()}">
+	            	</p>
+	            	<p th:text="${'Memory standard: ' + package.getMemoryStandard()}">
+	            	</p>
+	            	<p th:text="${'Memory slots: ' + package.getMemorySlots()}">
+	            	</p>
+	            	<p th:if="${package.isIntegratedGraphics()}" th:text="${'Integrated graphics included'}">
+	            	</p>
+	            	<p th:if="${!package.isIntegratedGraphics()}" th:text="${'Integrated graphics not included'}">
+	            	</p>
+	            	<p th:text="${'Company: ' + package.getBoardCompany()}">
+	            	</p>
+	            </div>
+	            
+	            <div th:if="${package instanceof T(com.kurss.demo.model.Mouse)}">
+		           	<p th:text="${'Price: ' + package.getPrice()} + '$'">
+	            	</p>
+	            	<p th:if="${package.isRGB()}" th:text="${'RGB included'}">
+	            	</p>
+	            	<p :if="${!package.isRGB()}" th:text="${'RGB not included'}">
+	            	</p>
+					<p th:if="${package.isBluetooth()}" th:text="${'Bluetooth included'}">
+	            	</p>
+	            	<p th:if="${!package.isBluetooth()}" th:text="${'Bluetooth not included'}">
+	            	</p>
+	            	<p th:text="${'DPI: ' + package.getDPI()}">
+	            	</p>
+	            	<p th:text="${'Buttons: ' + package.getAmountOfButtons()}">
+	            	</p>
+	            	<p th:text="${'Company: ' + package.getMouseCompany()}">
+	            	</p>
+	            </div>
+	            
+	           	<div th:if="${package instanceof T(com.kurss.demo.model.PowerSupply)}">
+		           	<p th:text="${'Price: ' + package.getPrice()} + '$'">
+	            	</p>
+	            	<p th:text="${'Supply: ' + package.getSupply()} + 'W'">
+	            	</p>
+	            	<p th:text="${'Noise level: ' + package.getVolume()} + 'dB'">
+	            	</p>
+	            	<p th:if="${package.isModular()}" th:text="${'Is modular'}">
+	            	</p>
+	            	<p th:if="${!package.isModular()}" th:text="${'Is not modular'}">
+	            	</p>
+	            	<p th:text="${'Construction: ' + package.getConstruction()}">
+	            	</p>
+	            	<p th:text="${'Company: ' + package.getPsc()}">
+	            	</p>
+	            	<p th:text="${'Certificate: ' + package.getCertificate()}">
+	            	</p>
+	            </div>
+	            
+	            <div th:if="${package instanceof T(com.kurss.demo.model.Processor)}">
+		           	<p th:text="${'Price: ' + package.getPrice()} + '$'">
+	            	</p>
+	            	<p th:text="${'Line: ' + package.getLine()}">
+	            	</p>
+	            	<p th:text="${'Cores: ' + package.getCores()}">
+	            	</p>
+	            	<p th:text="${'Threads: ' + package.getThreads()}">
+	            	</p>
+	            	<p th:text="${'Frequency: ' + package.getFrequency()} + 'mHz'">
+	            	</p>
+	            	<p th:text="${'Turbo frequency: ' + package.getFrequencyTurbo()} + 'mHz'">
+	            	</p>
+	            	<p th:if="${package.isIntegratedGraphics()}" th:text="${'Has integrated graphics'}">
+	            	</p>
+	            	<p th:if="${!package.isIntegratedGraphics()}" th:text="${'Does not support integrated graphics'}">
+	            	</p>
+	            	<p th:text="${'Architecture: ' + package.getArchitecture()}">
+	            	</p>
+	            </div>
+	            
+	           <div th:if="${package instanceof T(com.kurss.demo.model.RAM)}">
+		           	<p th:text="${'Price: ' + package.getPrice()} + '$'">
+	            	</p>
+	            	<p th:text="${'Type: ' + package.getRAMType()}">
+	            	</p>
+	            	<p th:text="${'Capacity: ' + package.getRAMCapacity()}">
+	            	</p>
+	            	<p th:text="${'Modules: ' + package.getNumberOfModules()}">
+	            	</p>
+	            	<p th:text="${'Frequency: ' + package.getOperatingFrequency()} + 'mHz'">
+	            	</p>
+	            	<p th:text="${'Delay: ' + package.getDelay()} + 'CL'">
+	            	</p>
+	            	<p th:text="${'Company: ' + package.getRAMCompany()}">
+	            	</p>
+	            </div>
+            </div>
+        </div>
+      </section>  
+
+
+      <div class="footer_dark">
+        <footer>
+            <div class="container">
+                <p class="copyright"> <b>MrRobot</b> © 2022 All rights reserved</p>
+            </div>
+        </footer>
+    </div>
+
+
+
+    
+</body>
+</html>
