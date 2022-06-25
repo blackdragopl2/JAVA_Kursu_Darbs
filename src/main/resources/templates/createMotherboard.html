@@ -1,0 +1,75 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<form action="#" th:action="@{/main/add/motherboard}" th:object="${motherboard}" method="post">
+	<table>
+		<tr>
+			<td>Title</td>
+			<td><input type="text" th:field="*{title}"></td>
+			<td th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</td>
+		</tr>
+			<td>Price</td>
+			<td><input type="text" th:field="*{price}"></td>
+			<td th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</td>
+		<tr>
+			<select name="type" th:field="*{type}">
+			<option th:each="typeOpt : ${T(com.kurss.demo.model.ProductTypes).values()}" th:value="${typeOpt}" th:text="${typeOpt}"></option>
+			</select>
+		</tr>
+		<tr>
+			<td>Amount</td>
+			<td><input type="text" th:field="*{amount}"></td>
+			<td th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}">Amount Error</td>
+		</tr>
+		<tr>
+			<td>Link to image</td>
+			<td><input type="text" th:field="*{linkImage}"></td>
+			<td th:if="${#fields.hasErrors('linkImage')}" th:errors="*{linkImage}">Link Error</td>
+		</tr>
+		<tr>
+			<td>Motherboard type</td>
+			<td><input type="text" th:field="*{typeOfBoard}"></td>
+			<td th:if="${#fields.hasErrors('typeOfBoard')}" th:errors="*{typeOfBoard}">Motherboard type error</td>
+		</tr>
+		<tr>
+			<td>Chipset</td>
+			<td><input type="text" th:field="*{Chipset}"></td>
+			<td th:if="${#fields.hasErrors('Chipset')}" th:errors="*{Chipset}">Chipset Error</td>
+		</tr>
+		<tr>
+			<td>CPU Socket</td>
+			<td><input type="text" th:field="*{CPUSocket}"></td>
+			<td th:if="${#fields.hasErrors('CPUSocket')}" th:errors="*{CPUSocket}">CPU Socket error</td>
+		</tr>
+		<tr>
+			<td>Memory Standard</td>
+			<td><input type="text" th:field="*{memoryStandard}"></td>
+			<td th:if="${#fields.hasErrors('memoryStandard')}" th:errors="*{memoryStandard}">Memory Standard Error</td>
+		</tr>
+		<tr>
+			<td>Memory slots</td>
+			<td><input type="text" th:field="*{memorySlots}"></td>
+			<td th:if="${#fields.hasErrors('memorySlots')}" th:errors="*{memorySlots}">Memory Slots Error</td>
+		</tr>
+		<tr>
+			<td>Integrated graphics</td>
+			<td>
+			<select class="form-control" th:field="*{integratedGraphics}">
+		    <option th:value="1" >true</option>
+		    <option th:value="0" >false</option>
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<select name="boardCompany" th:field="*{boardCompany}">
+			<option th:each="boardCompanyOpt : ${T(com.kurss.demo.model.BoardCompanies).values()}" th:value="${boardCompanyOpt}" th:text="${boardCompanyOpt}"></option>
+			</select>
+		</tr>
+		<tr>
+			<td><button type="submit"> Save motherboard </button>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>

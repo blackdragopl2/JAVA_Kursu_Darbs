@@ -6,5 +6,6 @@ public enum PowerSupplyCompanies {
 	AEROCOOL,
 	INTEL,
 	GIGABYTE,
-	ASUS
+	ASUS,
+	FIRESTORM
 }

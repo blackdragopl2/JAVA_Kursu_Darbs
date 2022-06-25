@@ -5,5 +5,6 @@ public enum KeyboardCompanies {
 	HYPERX,
 	MSI,
 	APPLE,
-	DELL
+	DELL,
+	RAZER
 }

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel= "stylesheet" th:href="@{/css/styles.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200&family=Kaushan+Script&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Components</title>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header_inner">
+                <div class="header_logo">MrRobot</div>
+            
+
+            <nav class="nav">
+                <a class="nav_link" th:href="@{~/main}">Home</a>
+                <a class="nav_link" th:href="@{~/main/products/}">Products</a>
+                <a class="nav_link" href="#">About us</a>
+                <a class="nav_link" href="#">Contact</a>
+            </nav>
+        </div>
+        </div>
+    </header>
+   
+    <section class="section_3">
+        <div class="container">
+            <div class="section_header">
+                <h2 class="section_title">All computer's components : </h2>
+            </div>
+    
+            <div class="about" th:each="temp : ${package}">
+                <div class="about_item">
+                    <div class="about_img">
+                        <img th:src="${temp.getLinkImage()}" alt="">
+                    </div>
+                    <div th:text="${temp.getTitle()}" class="about_text_2"> <b th:text="${temp.getPrice()}">$</b></div>
+                    <a class="about_text" th:href="@{~/main/products/{id}(id=${temp.getID_PROD()})}">buy</a>
+                </div>
+             	<br>
+            </div>
+            
+            
+
+			<!--
+            <div class="about">
+                <div class="about_item">
+                    <div class="about_img">
+                        <img src = "assets/images/components_list/component4.jpg" alt="">
+                    </div>
+                    <div class="about_text_2">Trust GXT 107 Izza <b> 25.99$</b></div>
+                    <a class="about_text" href="#">buy</a>
+                </div>
+                <div class="about_item">
+                    <div class="about_img">
+                        <img src = "assets/images/components_list/component5.jpg" alt="">
+                    </div>
+                    <div class="about_text_2"> G.Skill Trident Z RGB Series 16GB (2 x 8GB) <b> 90.99$</b></div>
+                    <a class="about_text" href="#">buy</a>
+                </div>
+                <div class="about_item">
+                    <div class="about_img">
+                        <img src = "assets/images/components_list/component6.jpg" alt="">
+                    </div>
+                    <div class="about_text_2">35" Predator Z35 Curved Gaming Monitor <b> 500.99$</b></div>
+                    <a class="about_text" href="#">buy</a>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="about">
+                <div class="about_item">
+                    <div class="about_img">
+                        <img src = "assets/images/components_list/component7.jpg" alt="">
+                    </div>
+                    <div class="about_text_2">FireStorm W750 PC Power & Cooling <b> 140.99$</b></div>
+                    <a class="about_text" href="#">buy</a>
+                </div>
+                <div class="about_item">
+                    <div class="about_img">
+                        <img src = "assets/images/components_list/component8.jpg" alt="">
+                    </div>
+                    <div class="about_text_2"> GeForce GTX 1070 Ti GAMING 8G <b> 470.99$</b></div>
+                    <a class="about_text" href="#">buy</a>
+                </div>
+                <div class="about_item">
+                    <div class="about_img">
+                        <img src = "" alt="">
+                    </div>
+                    <div class="about_text_2"></div>
+                    <a class="about_text" href="#"></a>
+                </div>
+            </div>
+			-->
+
+
+
+    </section>
+
+    <div class="footer_dark">
+    <footer>
+        <div class="container">
+            <p class="copyright"> <b>MrRobot</b> © 2022 All rights reserved</p>
+        </div>
+    </footer>
+</div>
+
+
+</body>
+</html>

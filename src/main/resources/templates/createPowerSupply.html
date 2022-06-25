@@ -1,0 +1,70 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<form action="#" th:action="@{/main/add/powerSupply}" th:object="${powerSupply}" method="post">
+	<table>
+		<tr>
+			<td>Title</td>
+			<td><input type="text" th:field="*{title}"></td>
+			<td th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</td>
+		</tr>
+			<td>Price</td>
+			<td><input type="text" th:field="*{price}"></td>
+			<td th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</td>
+		<tr>
+			<select name="type" th:field="*{type}">
+			<option th:each="typeOpt : ${T(com.kurss.demo.model.ProductTypes).values()}" th:value="${typeOpt}" th:text="${typeOpt}"></option>
+			</select>
+		</tr>
+		<tr>
+			<td>Amount</td>
+			<td><input type="text" th:field="*{amount}"></td>
+			<td th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}">Amount Error</td>
+		</tr>
+		<tr>
+			<td>Link to image</td>
+			<td><input type="text" th:field="*{linkImage}"></td>
+			<td th:if="${#fields.hasErrors('linkImage')}" th:errors="*{linkImage}">Link Error</td>
+		</tr>
+		<tr>
+			<td>Supply</td>
+			<td><input type="text" th:field="*{supply}"></td>
+			<td th:if="${#fields.hasErrors('supply')}" th:errors="*{supply}">Supply error</td>
+		</tr>
+		<tr>
+			<td>Volume</td>
+			<td><input type="text" th:field="*{volume}"></td>
+			<td th:if="${#fields.hasErrors('volume')}" th:errors="*{volume}">Volume Error</td>
+		</tr>
+		<tr>
+			<td>Construction</td>
+			<td><input type="text" th:field="*{construction}"></td>
+			<td th:if="${#fields.hasErrors('construction')}" th:errors="*{construction}">Construction error</td>
+		</tr>
+		<tr>
+			<td>Modular</td>
+			<td>
+			<select class="form-control" th:field="*{modular}">
+		    <option th:value="1" >true</option>
+		    <option th:value="0" >false</option>
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<select name="psc" th:field="*{psc}">
+			<option th:each="pscOpt : ${T(com.kurss.demo.model.PowerSupplyCompanies).values()}" th:value="${pscOpt}" th:text="${pscOpt}"></option>
+			</select>
+		</tr>
+		<tr>
+			<select name="certificate" th:field="*{certificate}">
+			<option th:each="certificateOpt : ${T(com.kurss.demo.model.Certificates).values()}" th:value="${certificateOpt}" th:text="${certificateOpt}"></option>
+			</select>
+		</tr>
+		<tr>
+			<td><button type="submit"> Save power supply </button>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>

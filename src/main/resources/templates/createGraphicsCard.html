@@ -1,0 +1,76 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<form action="#" th:action="@{/main/add/graphicsCard}" th:object="${graphicsCard}" method="post">
+	<table>
+		<tr>
+			<td>Title</td>
+			<td><input type="text" th:field="*{title}"></td>
+			<td th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</td>
+		</tr>
+			<td>Price</td>
+			<td><input type="text" th:field="*{price}"></td>
+			<td th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</td>
+		<tr>
+			<select name="type" th:field="*{type}">
+			<option th:each="typeOpt : ${T(com.kurss.demo.model.ProductTypes).values()}" th:value="${typeOpt}" th:text="${typeOpt}"></option>
+			</select>
+		</tr>
+		<tr>
+			<td>Amount</td>
+			<td><input type="text" th:field="*{amount}"></td>
+			<td th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}">Amount Error</td>
+		</tr>
+		<tr>
+			<td>Link to image</td>
+			<td><input type="text" th:field="*{linkImage}"></td>
+			<td th:if="${#fields.hasErrors('linkImage')}" th:errors="*{linkImage}">Link Error</td>
+		</tr>
+		<tr>
+			<td>GPU speed</td>
+			<td><input type="text" th:field="*{GPUSpeed}"></td>
+			<td th:if="${#fields.hasErrors('GPUSpeed')}" th:errors="*{GPUSpeed}">GPU Error</td>
+		</tr>
+		<tr>
+			<td>RAM amount</td>
+			<td><input type="text" th:field="*{RAM}"></td>
+			<td th:if="${#fields.hasErrors('RAM')}" th:errors="*{RAM}">RAM Error</td>
+		</tr>
+		<tr>
+			<td>RAM type</td>
+			<td><input type="text" th:field="*{RAMType}"></td>
+			<td th:if="${#fields.hasErrors('RAMType')}" th:errors="*{RAMType}">RAM Type Error</td>
+		</tr>
+		<tr>
+			<td>RAM frequency</td>
+			<td><input type="text" th:field="*{RAMFrequency}"></td>
+			<td th:if="${#fields.hasErrors('RAMFrequency')}" th:errors="*{RAMFrequency}">Ram frequency Error</td>
+		</tr>
+		<tr>
+			<td>Bus</td>
+			<td><input type="text" th:field="*{dataBus}"></td>
+			<td th:if="${#fields.hasErrors('dataBus')}" th:errors="*{dataBus}">Bus Error</td>
+		</tr>
+		<tr>
+			<td>Cooling Type</td>
+			<td><input type="text" th:field="*{coolingType}"></td>
+			<td th:if="${#fields.hasErrors('coolingType')}" th:errors="*{coolingType}">Cooling type Error</td>
+		</tr>
+		<tr>
+			<td>Connectors</td>
+			<td><input type="text" th:field="*{connectors}"></td>
+			<td th:if="${#fields.hasErrors('connectors')}" th:errors="*{connectors}">Connectors Error</td>
+		</tr>
+		<tr>
+			<select name="cardCompany" th:field="*{cardCompany}">
+			<option th:each="cardCompanyOpt : ${T(com.kurss.demo.model.CardCompanies).values()}" th:value="${cardCompanyOpt}" th:text="${cardCompanyOpt}"></option>
+			</select>
+		</tr>
+		<tr>
+			<td><button type="submit"> Save card </button>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>
